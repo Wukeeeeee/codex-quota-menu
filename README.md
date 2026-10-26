@@ -15,15 +15,25 @@
 需要 Windows、Microsoft Store 版 ChatGPT/Codex 桌面客户端，以及已加入 `PATH` 的 Node.js。
 
 1. 下载或克隆本仓库。
-2. 双击 `ChatGPT Menu.vbs`。启动器会从官方安装读取文件，在仓库目录下生成本地副本并启动它。
-3. 可选：运行 `install-shortcuts.ps1`，在桌面和开始菜单创建 **ChatGPT Menu** 快捷方式。
-4. 后续冷启动请使用 **ChatGPT Menu**。如果看到“请先退出”，从系统托盘完全退出官方客户端后重试。
+2. 在仓库目录打开 PowerShell，运行下面这一条。脚本会创建 **ChatGPT Menu** 快捷方式并启动客户端副本：
+
+   ```powershell
+   powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
+   ```
+
+3. 后续冷启动请使用 **ChatGPT Menu**。如果看到“请先退出”，从系统托盘完全退出官方客户端后重试。
 
 额度栏读取客户端原有的额度响应，不调用模型。圆环百分比代表剩余额度；5 小时和 7 天的重置倒计时会自动更新，额度数据大约每两分钟刷新一次。
 
 ## 卸载
 
-关闭补丁副本，删除 **ChatGPT Menu** 快捷方式和本项目目录即可。若要恢复官方客户端，用原来的官方入口启动。项目不会替换官方快捷方式。
+在仓库目录运行下面这一条。它会尝试关闭本项目客户端、移除本项目快捷方式，并删除生成的客户端副本和缓存；仓库源码会保留。若要删除源码，再手动删除整个仓库目录。卸载不会移除或改动官方 ChatGPT：
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\uninstall.ps1
+```
+
+若要恢复官方客户端，用原来的官方入口启动。项目不会替换官方快捷方式。
 
 ## 已知限制
 

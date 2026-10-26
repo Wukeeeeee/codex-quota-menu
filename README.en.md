@@ -15,15 +15,25 @@ For a cold start, use the **ChatGPT Menu** shortcut created by this project or d
 Requires Windows, the Microsoft Store ChatGPT/Codex desktop app, and Node.js available on `PATH`.
 
 1. Download or clone this repository.
-2. Double-click `ChatGPT Menu.vbs`. The launcher reads the official installation, builds a local copy in the repository folder, and starts it.
-3. Optional: run `install-shortcuts.ps1` to create **ChatGPT Menu** shortcuts on the Desktop and in the Start menu.
-4. Use **ChatGPT Menu** for later cold starts. If prompted, fully exit the official app from the system tray first.
+2. Open PowerShell in the repository folder and run the following command. It creates **ChatGPT Menu** shortcuts and starts the patched client copy:
+
+   ```powershell
+   powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
+   ```
+
+3. Use **ChatGPT Menu** for later cold starts. If prompted, fully exit the official app from the system tray first.
 
 The menu reads the app's existing quota response; it does not call a model. Ring percentages show remaining allowance. Countdown labels update automatically, and quota data refreshes about every two minutes.
 
 ## Uninstall
 
-Close the patched copy, delete the **ChatGPT Menu** shortcuts and this repository folder. Start the official client from its original shortcut to return to the unmodified app. This project does not replace the official shortcut.
+Run this from the repository folder. It attempts to close only this project's client, removes its shortcuts, and deletes generated client/cache files while preserving the repository source. Delete the repository folder separately if desired. It does not remove or modify the official ChatGPT installation:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\uninstall.ps1
+```
+
+Start the official client from its original shortcut to return to the unmodified app. This project does not replace the official shortcut.
 
 ## Known limitations
 
