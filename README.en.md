@@ -23,6 +23,10 @@ Requires Windows, the Microsoft Store ChatGPT/Codex desktop app, and Node.js ava
 
 3. Use **ChatGPT Menu** for later cold starts. If prompted, fully exit the official app from the system tray first.
 
+You can also ask your local Codex to run this in the repository folder:
+
+> Run `powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1` in this repository to install and start it. Do not change the official shortcut or the WindowsApps installation.
+
 The menu reads the app's existing quota response; it does not call a model. Ring percentages show remaining allowance. Countdown labels update automatically, and quota data refreshes about every two minutes.
 
 ## Uninstall
@@ -32,6 +36,10 @@ Run this from the repository folder. It attempts to close only this project's cl
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\uninstall.ps1
 ```
+
+Or ask your local Codex to run it:
+
+> Run `powershell -NoProfile -ExecutionPolicy Bypass -File .\uninstall.ps1` in this repository to uninstall this project. Remove only its shortcuts and generated files, preserve the source repository, and do not touch the official ChatGPT installation or shortcut.
 
 Start the official client from its original shortcut to return to the unmodified app. This project does not replace the official shortcut.
 
@@ -52,4 +60,5 @@ Close all ChatGPT/Codex desktop processes before changing the patch. The builder
 This is an independent community experiment and is not affiliated with OpenAI or Microsoft. ChatGPT, Codex, and related marks belong to their respective owners. Use of a modified desktop client is at your own risk.
 
 License: MIT. See [LICENSE](LICENSE).
+
 

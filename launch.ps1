@@ -10,6 +10,10 @@ try {
         $candidates = Get-ChildItem -LiteralPath 'C:\Program Files\WindowsApps' -Directory -Filter 'OpenAI.Codex_*_x64__2p2nqsd0c76g0' -ErrorAction SilentlyContinue | Sort-Object Name -Descending
         if ($candidates) { $sourceRoot = Join-Path $candidates[0].FullName 'app' }
     }
+    if (-not $sourceRoot) {
+        $knownCurrentRoot = 'C:\Program Files\WindowsApps\OpenAI.Codex_26.1021.3705.0_x64__2p2nqsd0c76g0\app'
+        if (Test-Path -LiteralPath (Join-Path $knownCurrentRoot 'ChatGPT.exe')) { $sourceRoot = $knownCurrentRoot }
+    }
     if (-not $sourceRoot -or -not (Test-Path -LiteralPath (Join-Path $sourceRoot 'ChatGPT.exe'))) { throw '找不到官方 ChatGPT 安装。请先安装官方桌面客户端。' }
     $nodePath = (Get-Command node.exe -ErrorAction Stop).Source
     $metaPath = Join-Path $clientRoot 'quota-patch.json'
@@ -35,5 +39,6 @@ try {
     Add-Type -AssemblyName System.Windows.Forms
     [System.Windows.Forms.MessageBox]::Show($_.Exception.Message, 'ChatGPT ChatGPT Menu', 'OK', 'Information') | Out-Null
 }
+
 
 

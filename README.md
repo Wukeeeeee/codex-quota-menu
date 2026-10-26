@@ -23,6 +23,10 @@
 
 3. 后续冷启动请使用 **ChatGPT Menu**。如果看到“请先退出”，从系统托盘完全退出官方客户端后重试。
 
+也可以把这句话交给本地 Codex 执行：
+
+> 请在这个仓库目录运行 `powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1` 完成安装并启动；不要改动官方快捷方式或 WindowsApps 安装。
+
 额度栏读取客户端原有的额度响应，不调用模型。圆环百分比代表剩余额度；5 小时和 7 天的重置倒计时会自动更新，额度数据大约每两分钟刷新一次。
 
 ## 卸载
@@ -32,6 +36,10 @@
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\uninstall.ps1
 ```
+
+也可以把这句话交给本地 Codex 执行：
+
+> 请在这个仓库目录运行 `powershell -NoProfile -ExecutionPolicy Bypass -File .\uninstall.ps1` 卸载本项目；只移除本项目的快捷方式和生成文件，保留仓库源码，不要触碰官方 ChatGPT 安装或快捷方式。
 
 若要恢复官方客户端，用原来的官方入口启动。项目不会替换官方快捷方式。
 
@@ -52,4 +60,5 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\uninstall.ps1
 本项目为独立社区实验项目，与 OpenAI、Microsoft 无关。ChatGPT、Codex 及相关标志归其各自权利人所有。使用者需自行评估运行修改版桌面客户端的风险。
 
 许可证：MIT，详见 [LICENSE](LICENSE)。
+
 
