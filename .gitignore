@@ -1,0 +1,16 @@
+# Generated client copies, caches, logs, and machine-local files
+/client/
+/client-*/
+/cache/
+/work/
+/inplace-artifacts/
+/inplace-backup/
+/addon/
+*.log
+*.lnk
+*.zip
+node_modules/
+quota-patch.json
+.env
+.env.*
+
