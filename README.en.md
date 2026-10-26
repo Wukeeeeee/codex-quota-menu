@@ -15,31 +15,25 @@ For a cold start, use the **ChatGPT Menu** shortcut created by this project or d
 Requires Windows, the Microsoft Store ChatGPT/Codex desktop app, and Node.js available on `PATH`.
 
 1. Download or clone this repository.
-2. Open PowerShell in the repository folder and run the following command. It creates **ChatGPT Menu** shortcuts and starts the patched client copy:
+2. Open the repository in a local agent that can access this Windows computer and run local scripts, then send it this prompt. The agent will check prerequisites, run the installer, and report the result:
 
-   ```powershell
-   powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
+   ```text
+   Install and start this repository's ChatGPT Quota Menu on this Windows computer. Read the README first, check that the Microsoft Store ChatGPT/Codex app and Node.js are available, then run install.ps1 from this repository. Do not modify the official shortcut, WindowsApps installation, or registry. If the official app is running, do not force-close it; tell me to exit it fully before continuing. Afterward, verify whether the ChatGPT Menu shortcut was created and whether the patched client actually started, and report the result and any errors accurately.
    ```
 
-3. Use **ChatGPT Menu** for later cold starts. If prompted, fully exit the official app from the system tray first.
-
-You can also ask your local Codex to run this in the repository folder:
-
-> Run `powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1` in this repository to install and start it. Do not change the official shortcut or the WindowsApps installation.
+3. Use **ChatGPT Menu** for later cold starts. If the agent reports that the official app is still running, fully exit it from the system tray and ask the agent to continue.
 
 The menu reads the app's existing quota response; it does not call a model. Ring percentages show remaining allowance. Countdown labels update automatically, and quota data refreshes about every two minutes.
 
 ## Uninstall
 
-Run this from the repository folder. It attempts to close only this project's client, removes its shortcuts, and deletes generated client/cache files while preserving the repository source. Delete the repository folder separately if desired. It does not remove or modify the official ChatGPT installation:
+Open this repository in a local agent and send it the prompt below. The script removes this project's shortcuts and generated client/cache while preserving the source repository. It does not uninstall or modify the official ChatGPT app:
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\uninstall.ps1
+```text
+Uninstall ChatGPT Quota Menu from this Windows computer. Read the README first, then run uninstall.ps1 from this repository. Remove only the ChatGPT Menu shortcuts and this project's generated client copy, cache, and log; preserve the repository source, and do not touch the official ChatGPT installation, its shortcut, or the registry. If this project's client cannot close normally, stop and tell me; do not force-terminate it. Verify and report what was actually removed.
 ```
 
-Or ask your local Codex to run it:
-
-> Run `powershell -NoProfile -ExecutionPolicy Bypass -File .\uninstall.ps1` in this repository to uninstall this project. Remove only its shortcuts and generated files, preserve the source repository, and do not touch the official ChatGPT installation or shortcut.
+To return to the official app, keep the source repository if you want and launch ChatGPT from its original shortcut. Delete the repository folder separately only if you also want to remove the source.
 
 Start the official client from its original shortcut to return to the unmodified app. This project does not replace the official shortcut.
 
@@ -60,5 +54,6 @@ Close all ChatGPT/Codex desktop processes before changing the patch. The builder
 This is an independent community experiment and is not affiliated with OpenAI or Microsoft. ChatGPT, Codex, and related marks belong to their respective owners. Use of a modified desktop client is at your own risk.
 
 License: MIT. See [LICENSE](LICENSE).
+
 
 

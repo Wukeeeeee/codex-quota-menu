@@ -15,33 +15,25 @@
 需要 Windows、Microsoft Store 版 ChatGPT/Codex 桌面客户端，以及已加入 `PATH` 的 Node.js。
 
 1. 下载或克隆本仓库。
-2. 在仓库目录打开 PowerShell，运行下面这一条。脚本会创建 **ChatGPT Menu** 快捷方式并启动客户端副本：
+2. 在有权限访问本机 Windows 桌面和运行本地脚本的 Agent 中打开仓库，把下面整段提示词发给它。Agent 会检查环境、运行安装脚本并汇报结果：
 
-   ```powershell
-   powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1
+   ```text
+   请在这台 Windows 电脑上安装并启动本仓库的 ChatGPT Quota Menu。先阅读 README，检查 Microsoft Store 版 ChatGPT/Codex 和 Node.js 是否可用；然后在本仓库目录运行 install.ps1。不要修改官方快捷方式、WindowsApps 安装或注册表。如果官方客户端正在运行，不要强行结束它；告诉我先完全退出官方客户端，再继续启动。完成后检查 ChatGPT Menu 快捷方式是否创建、补丁客户端是否实际启动，并如实报告结果和错误。
    ```
 
-3. 后续冷启动请使用 **ChatGPT Menu**。如果看到“请先退出”，从系统托盘完全退出官方客户端后重试。
-
-也可以把这句话交给本地 Codex 执行：
-
-> 请在这个仓库目录运行 `powershell -NoProfile -ExecutionPolicy Bypass -File .\install.ps1` 完成安装并启动；不要改动官方快捷方式或 WindowsApps 安装。
+3. 后续冷启动使用 **ChatGPT Menu**。如果 Agent 提示官方客户端仍在运行，先从系统托盘完全退出官方客户端，再让它继续。
 
 额度栏读取客户端原有的额度响应，不调用模型。圆环百分比代表剩余额度；5 小时和 7 天的重置倒计时会自动更新，额度数据大约每两分钟刷新一次。
 
 ## 卸载
 
-在仓库目录运行下面这一条。它会尝试关闭本项目客户端、移除本项目快捷方式，并删除生成的客户端副本和缓存；仓库源码会保留。若要删除源码，再手动删除整个仓库目录。卸载不会移除或改动官方 ChatGPT：
+在本地 Agent 中打开本仓库，把下面提示词发给它。脚本会移除本项目的快捷方式和生成的客户端副本、缓存，保留仓库源码；不会卸载或修改官方 ChatGPT：
 
-```powershell
-powershell -NoProfile -ExecutionPolicy Bypass -File .\uninstall.ps1
+```text
+请卸载这台 Windows 电脑上的 ChatGPT Quota Menu。先阅读 README，然后在本仓库目录运行 uninstall.ps1。只移除本项目创建的 ChatGPT Menu 快捷方式和生成的客户端副本、缓存、日志；保留本仓库源码，不要碰官方 ChatGPT 安装、官方 ChatGPT 快捷方式或注册表。若本项目客户端无法正常关闭，停止卸载并告诉我，不要强制结束进程。完成后检查并报告实际清理结果。
 ```
 
-也可以把这句话交给本地 Codex 执行：
-
-> 请在这个仓库目录运行 `powershell -NoProfile -ExecutionPolicy Bypass -File .\uninstall.ps1` 卸载本项目；只移除本项目的快捷方式和生成文件，保留仓库源码，不要触碰官方 ChatGPT 安装或快捷方式。
-
-若要恢复官方客户端，用原来的官方入口启动。项目不会替换官方快捷方式。
+若只想恢复官方客户端，保留仓库也可以；卸载后使用原来的官方入口启动即可。若还要删除源码，再自行删除整个仓库目录。
 
 ## 已知限制
 
@@ -60,5 +52,6 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\uninstall.ps1
 本项目为独立社区实验项目，与 OpenAI、Microsoft 无关。ChatGPT、Codex 及相关标志归其各自权利人所有。使用者需自行评估运行修改版桌面客户端的风险。
 
 许可证：MIT，详见 [LICENSE](LICENSE)。
+
 
 
